@@ -39,7 +39,14 @@
                             <label class="form-check-label" for="remember">Remember me</label>
                         </div>
 
-                        <button type="submit" class="btn btn-primary">Login</button>
+                        <div>
+                        @if ($errors->has('message'))
+                            <div class="alert alert-danger">{{ $errors->first('message') }}</div>
+                        @endif
+   
+                    </div>
+
+                        <button type="submit" class="btn btn-dark">Login</button>
                     </form>
 
                 </div>

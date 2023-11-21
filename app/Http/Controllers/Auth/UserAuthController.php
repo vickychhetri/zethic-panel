@@ -34,7 +34,7 @@ class UserAuthController extends Controller
             return redirect()->intended('admin/dashboard');
         }
 
-        return back()->withErrors(['email' => 'Invalid credentials']);
+        return back()->withErrors(['message' => 'Invalid credentials']);
     }
 
 
