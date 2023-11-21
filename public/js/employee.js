@@ -3,23 +3,6 @@
 $(document).ready(function () {
     // Fetch and display employees on page load
     fetchdEmployees();
-
-    // function fetchEmployees(page) {
-    //     $.ajax({
-    //         url: '/admin/employee',
-    //         type: 'GET',
-    //         dataType: 'json',
-    //         success: function (data) {
-    //             console.log(data.employees);
-    //             displayEmployees(data.employees);
-    //         },
-    //         error: function (error) {
-    //             console.error('Error fetching employees: ', error);
-    //         }
-    //     });
-    // }
-
-
 });
 
 function fetchdEmployees(pageNumber = 1) {
@@ -205,17 +188,14 @@ $(document).ready(function () {
                 $btn.prop('disabled', false).html('Submit');
             },
             error: function (error) {
-                // Handle error
-                console.log(error);
-                if (error.message) {
-                    $.notify(error.message.substring(0, 100), "error");
-                }
+                $.notify(error?.responseJSON?.message.substring(0, 100), "error");
                 $btn.prop('disabled', false).html('Submit');
             }
         });
     });
 });
 
+ 
 
 $(document).ready(function () {
     $("#submitUpdateForm").click(function (event) {
